@@ -34,8 +34,14 @@ public class ProdutoResource {
     @DeleteMapping("/produto")
     public void deletarProduto(@RequestBody Produto produto){
         produtoRepository.deleteById(produto.getId());
+        // Desta forma, estamos buscando um produdo pelo id, e em seguida, deletando-o
     }
 
+    @PutMapping("/produto")
+    public Produto atualizarProduto(@RequestBody Produto produto){
+        return produtoRepository.save(produto);
+        // Desta forma,será necessário passar um produto inteiro, onde será atualizado pelo ID
+    }
 
 
 }
